@@ -1,0 +1,7 @@
+beautifulsoup4
+panda
+scraper
+sleep
+randint
+numpy
+selenium
