@@ -1,0 +1,33 @@
+We see that for the first page, we have page=1. For the second page, we would have page=2, and so on.
+Therefore, all we need to do is create a “for” loop where we change the very last number. For each page, the loop will collect the information we specified.
+Here is the code to collect the distance from city centre, the price of a dorm bed, the price of a private room and the average rating given by previous customers for all the hostels found in the first 2 pages of the website.
+
+I use selenium here because the hostelworld pages are JavaScript rendered, which BeautifulSoup cannot handle.
+I scraped the “price-title 5” element because this element allows us to know whether the price is for a dorm or a private room.
+The sleep function is useful to control the rate at which we make requests to the website server (to avoid slowing down the servers), but it’s also useful to make sure selenium has found the information we want before it keeps going.
+Normally, we would move on to cleaning the data to make it usable, but I will do this at the very end with the last method. Let’s move on to the next method.
+Loop over a manually created list of URLs
+That’s great, but what if the different URLs you want to scrape don’t have the page number you can loop through? Also, what if I want specific information that is only available on the actual page of the hostel?
+Well, the first way to do this is to manually create a list of URLs, and loop through that list. Here is the code to create the list of URLs for the first two hostels:
+
+Then, you could create a new “for” loop that goes over every element of the list and collects the information you want, in exactly the same way as shown in the first method.
+That works if you have just a few URLs, but imagine if you have a 100, 1,000 or even 10,000 URLs! Surely, creating a list manually is not what you want to do (unless you got a loooot of free time)!
+Thankfully, there is a better/smarter way to do things.
+Looping over a scraped list of URLs
+Here we are, the last method covered in this tutorial. Let’s look closely at the chewy page we are scraping.
+
+We see that every food item listing has a href attribute, which specifies the link to the individual chewy page. That’s the information we want.
+The method goes as follows:
+Create a “for” loop scraping all the href attributes (and so the URLs) for all the pages we want.
+Clean the data and create a list containing all the URLs collected.
+Create a new loop that goes over the list of URLs to scrape all the information needed.
+Clean the data and create the final dataframe.
+It’s important to point out that if every page scraped has a different structure, the method will not work properly. The URLs need to come from the same website!
+For every hostel page, I scraped the name of the hostel, the cheapest price for a bed, the number of reviews and the review score for the 8 categories (location, atmosphere, security, cleanliness, etc.).
+This makes the first method we saw useless, as with this one, i can get all the same information, and more!
+Here is the code to get the clean list of URLs.
+
+It’s likely that unwanted links will be present in your list of URLs, as was the case here. Generally, there will almost always be a very distinct pattern to differentiate URLs you want from the other URLs (publicity, etc.). In this case, all links to hostels were starting with /pwa/.
+I added the string ‘https://www.hostelworld.com’ to every element of the list. That part was needed for the URLs to work in the coming loop.
+Now that we have the list of clean URLs, we can scrape all the information we want on every hostel page by looping through the list.
+Since every iteration takes about 15–20 seconds, I will only do it for the first 10 hostels here. You could easily change that by modyfing the range.

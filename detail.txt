@@ -1,0 +1,44 @@
+I have gone to a subsection of the site here, and it looks like a there are quite a lot of choices. And if you want to find out what the user ratings are for every product, then you have to open each and every product page to get the ratings (you can't find them on the main page).
+
+
+But some of them don't have a rating. Instead, in those cases, I'll go into each product and get the about text as well.
+
+How to Setup the Scraping Project
+Our setup is pretty simple. Just create a folder and install Beautiful Soup, pandas, and requests. To create a folder and install the libraries, enter the commands given below. I am assuming that you have already installed Python 3.x.
+
+mkdir scraper 
+pip install beautifulsoup4 
+pip install requests
+pip install pandas
+Now, i will create a file inside that folder. I am using the name scraper.py. im going to import requests, pandas, and bs4.
+
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+Now, im are going to set the base URL of the main page because i'll need that when we construct our URLs for each of the individual products.
+
+Also, i will send a user-agent on every HTTP request, because if you make GET request using requests then by default the user-agent is Python which might get blocked.
+
+So, to override that, i will declare a variable which will store our user-agent.
+
+baseurl = "https://www.chewy.com"
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'}
+Now i need to investigate the page so that we can figure out where the links are and how we're going to get them. You have to open Chrome dev tools by using inspect (Command+Option+C).
+
+
+i will write a script to go through each one of these and create a URL for us. To do that i need to make an HTTP call first. Then i will extract the li element using BeautifulSoup.
+
+k = requests.get('https://www.thewhiskyexchange.com/c/35/japanese-whisky').text
+soup=BeautifulSoup(k,'html.parser')
+productlist = soup.find_all("li",{"class":"product-grid__item"})
+print(productlist)
+Next, get the HTML for the items on this page. Now, inside each of these lists there is a link to the individual product page. 
+i will write a script to scrape all those links from the productlist.
+
+productlinks = []
+for product in productlist:
+        link = product.find("a",{"class":"product-card"}).get('href')                 productlinks.append(baseurl + link)
+Here first i have declared an empty list called productlinks. 
+Then i have used a for loop to reach each productlist element to extract the link. We have used the .get() function to get the value of the href attribute.
+ After extracting the link i store every link inside the list productlinks. 
+Since i have to create a legit  URL, we have added baseurl to the link.
