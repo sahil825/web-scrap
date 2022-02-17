@@ -175,3 +175,5 @@ df = pd.DataFrame(data)
 
 print(df)
 this is bacialy the code which is used for showing or displayed the following or given atributes in url form and then last by calling the prin(df) funcion it will give the output in print form in output section and if run on websit it will display over url section 
+
+And most important how to set hub project and what are some other funcation are described in details.txt file 
