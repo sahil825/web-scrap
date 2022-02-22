@@ -8,7 +8,9 @@ mkdir scraper
 pip install beautifulsoup4 
 pip install requests
 pip install pandas
-*Now, i will create a file inside that folder. I am using the name scraper.py. im going to import requests, pandas, and bs4.
+
+
+# Now, i will create a file inside that folder. I am using the name scraper.py. im going to import requests, pandas, and bs4.
 
 in chwe.py i have installed python library name Beautifulsoup which is used for web scraping purposes to pull the data out of html and xml files. it creates a parse tree from page source code that can be used to extract data in hierahical and more readable manner
 the i have imported numpy as np which works as the fudamental packages for scientific computing in python 
@@ -21,7 +23,7 @@ from time import sleep
 from random import randint
 from selenium import webdriver
 
-this part of code is for importing some used python library which help for to do some extra work as i explai above 
+* This part of code is for importing some used python library which help for to do some extra work as i explai above 
 then in next part which is 
 pages = np.arange(1)
 data=[]
@@ -55,11 +57,11 @@ for page in pages:
     urls = [item.get("href") for item in soup.find_all("a")]
     
     
-#Remove duplicates and none values
+# Remove duplicates and none values
 urls_final = list(dict.fromkeys(url_collected))
 urls_final = list(filter(None, urls_final)) 
 
-#Remove if not starting with pwa, remove if ending with display=reviews
+# Remove if not starting with pwa, remove if ending with display=reviews
 url_final = [x for x in urls_final if x.startswith('/pwa/')]
 url_final = [x for x in url_final if not x.endswith('display=reviews')]
    
