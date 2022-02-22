@@ -1,14 +1,14 @@
 # web-scrap
 test
 
-How to Setup the Scraping Project
+* How to Setup the Scraping Project
 Our setup is pretty simple. Just create a folder and install Beautiful Soup, pandas, and requests. To create a folder and install the libraries, enter the commands given below. I am assuming that you have already installed Python 3.x.
 
 mkdir scraper 
 pip install beautifulsoup4 
 pip install requests
 pip install pandas
-Now, i will create a file inside that folder. I am using the name scraper.py. im going to import requests, pandas, and bs4.
+*Now, i will create a file inside that folder. I am using the name scraper.py. im going to import requests, pandas, and bs4.
 
 in chwe.py i have installed python library name Beautifulsoup which is used for web scraping purposes to pull the data out of html and xml files. it creates a parse tree from page source code that can be used to extract data in hierahical and more readable manner
 the i have imported numpy as np which works as the fudamental packages for scientific computing in python 
