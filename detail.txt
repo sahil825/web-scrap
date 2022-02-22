@@ -28,7 +28,7 @@ Now i need to investigate the page so that we can figure out where the links are
 
 i will write a script to go through each one of these and create a URL for us. To do that i need to make an HTTP call first. Then i will extract the li element using BeautifulSoup.
 
-k = requests.get('https://www.thewhiskyexchange.com/c/35/japanese-whisky').text
+k = requests.get('https://www.chwe.com/dog_food/wey_food).text
 soup=BeautifulSoup(k,'html.parser')
 productlist = soup.find_all("li",{"class":"product-grid__item"})
 print(productlist)
