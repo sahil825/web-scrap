@@ -57,11 +57,11 @@ for page in pages:
     urls = [item.get("href") for item in soup.find_all("a")]
     
     
-# Remove duplicates and none values
+#Remove duplicates and none values
 urls_final = list(dict.fromkeys(url_collected))
 urls_final = list(filter(None, urls_final)) 
 
-# Remove if not starting with pwa, remove if ending with display=reviews
+#Remove if not starting with pwa, remove if ending with display=reviews
 url_final = [x for x in urls_final if x.startswith('/pwa/')]
 url_final = [x for x in url_final if not x.endswith('display=reviews')]
    
@@ -185,6 +185,6 @@ for link in productlinks:
 df = pd.DataFrame(data)
 
 print(df)
-this is bacialy the code which is used for showing or displayed the following or given atributes in url form and then last by calling the prin(df) funcion it will give the output in print form in output section and if run on websit it will display over url section 
+* This is bacialy the code which is used for showing or displayed the following or given atributes in url form and then last by calling the prin(df) funcion it will give the output in print form in output section and if run on websit it will display over url section 
 
-And most important how to set up project and what are some other funcation are described in detail.txt file 
+#And most important how to set up project and what are some other funcation are described in detail.txt file 
