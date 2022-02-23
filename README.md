@@ -12,6 +12,8 @@ pip install pandas
 
 # Now, i will create a file inside that folder. I am using the name scraper.py. im going to import requests, pandas, and bs4.
 
+# after setup this project dowmload this code or clone this code into your dericatory and after that run this on your idel or visual studio code after runing this your output terminal will give you output of ths code 
+
 in chwe.py i have installed python library name Beautifulsoup which is used for web scraping purposes to pull the data out of html and xml files. it creates a parse tree from page source code that can be used to extract data in hierahical and more readable manner
 the i have imported numpy as np which works as the fudamental packages for scientific computing in python 
 i have also imported sleep which is used for to suspends execution for the given number of second. the arugment may be a floating point number to indicate a more precise sleep time 
